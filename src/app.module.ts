@@ -1,23 +1,29 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { AppService } from './app.service';
+
+import { GeolocationModule } from './geolocation/geolocation.module';
+import { Geolocation } from './geolocation/entities/geolocation.entity'
+
 
 @Module({
   imports: [
     TypeOrmModule.forRoot ({
-      "type": "mysql",
-      "host": "localhost",
-      "port": 3306,
-      "username": "body_backend_user",
-      "password": "body2668",
-      "database": "body_backend",
-      "entities": [
+      type: 'postgres',
+      host: 'database',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      entities: [
+        Geolocation,
         "src/modules/**/*.entity.{ts,js}"
       ],
-      "synchronize": false // SI ESTA EN TRUE BORRA LA BASE DE DATOS! DEJARLO EN FALSE
+      database: 'pgWithNest',
+      logging: true,
+      synchronize: false // SI ESTA EN TRUE BORRA LA BASE DE DATOS! DEJARLO EN FALSE
     }),
+    GeolocationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
