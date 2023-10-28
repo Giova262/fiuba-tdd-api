@@ -1,6 +1,6 @@
 version: "3"
 services:
-  app:
+  nestjsAPI:
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,3 +8,14 @@ services:
       - 31000:3000
     volumes:
       - .:/app
+    links:
+      - "postgresDB:database"
+  postgresDB:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 31543:5432
+    volumes:
+      - /home/giova/repositories/tdd-database-2/data:/var/lib/postgresql/data
