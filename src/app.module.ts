@@ -29,3 +29,4 @@ import { Evento } from './eventos/entities/evento.entity';
 export class AppModule {}
 
 // ADD new modules with this command:  npx @nestjs/cli g resource eventos   -> eventos is a example
+// ADD permiss when vscode cant write:  chown -R node:node /app/
