@@ -1,6 +1,6 @@
 version: "3"
 services:
-  nestjsAPI:
+  nestjs-api:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +9,8 @@ services:
     volumes:
       - .:/app
     links:
-      - "postgresDB:database"
-  postgresDB:
+      - "postgres-db:database"
+  postgres-db:
     image: postgres:alpine
     restart: always
     environment:
