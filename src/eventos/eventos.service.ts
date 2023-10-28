@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { Repository } from 'typeorm';
+
+
 import { CreateEventoDto } from './dto/create-evento.dto';
 import { UpdateEventoDto } from './dto/update-evento.dto';
+import { Evento } from './entities/evento.entity'
+
 
 @Injectable()
 export class EventosService {
+
+  constructor(@InjectRepository(Evento) private geolocationRepository: Repository<Evento>) { }
   create(createEventoDto: CreateEventoDto) {
     return 'This action adds a new evento';
   }
 
-  findAll() {
-    return `This action returns all eventos`;
+  async findAll() {
+    return await this.geolocationRepository.find();
   }
 
   findOne(id: number) {

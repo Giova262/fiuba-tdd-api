@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { EventosModule } from './eventos/eventos.module';
 import { Evento } from './eventos/entities/evento.entity';
 
+
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
