@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 
 import { GeolocationModule } from './geolocation/geolocation.module';
 import { Geolocation } from './geolocation/entities/geolocation.entity'
+import { EventosModule } from './eventos/eventos.module';
 
 
 @Module({
@@ -24,8 +25,12 @@ import { Geolocation } from './geolocation/entities/geolocation.entity'
       synchronize: false // SI ESTA EN TRUE BORRA LA BASE DE DATOS! DEJARLO EN FALSE
     }),
     GeolocationModule,
+    EventosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
+
+// ADD new modules with this command:  npx @nestjs/cli g resource eventos   -> eventos is a example
