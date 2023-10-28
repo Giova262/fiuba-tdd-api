@@ -13,13 +13,13 @@ import { Geolocation } from './geolocation/entities/geolocation.entity'
       type: 'postgres',
       host: 'database',
       port: 5432,
+      database: 'postgres',
       username: 'postgres',
       password: 'postgres',
       entities: [
         Geolocation,
         "src/modules/**/*.entity.{ts,js}"
       ],
-      database: 'pgWithNest',
       logging: true,
       synchronize: false // SI ESTA EN TRUE BORRA LA BASE DE DATOS! DEJARLO EN FALSE
     }),
